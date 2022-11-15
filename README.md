@@ -1,2 +1,8 @@
 # ImageJ
-Proyecto para análisis de métricas de calidad Sonar Cloud y Sonar Graph
+
+Proyecto para analizar la calidad de código con respecto a su:
+- Acoplamiento
+- Complejidad 
+- Duplicación
+
+Proyecto base tomado de: https://imagej.nih.gov/ij/index.html
