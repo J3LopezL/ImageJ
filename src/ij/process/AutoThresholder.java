@@ -52,7 +52,7 @@ public class AutoThresholder {
 			case Intermodes: threshold = Intermodes(histogram); break;
 			case IsoData: threshold = IsoData(histogram); break;
 			case Li: threshold = Li(histogram); break;
-			case MaxEntropy: threshold = MaxEntropy(histogram); break;
+			case MaxEntropy: threshold = RenyiEntropy(histogram); break;
 			case Mean: threshold = Mean(histogram); break;
 			case MinError: threshold = MinErrorI(histogram); break;
 			case Minimum: threshold = Minimum(histogram); break;

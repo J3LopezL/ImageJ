@@ -197,10 +197,10 @@ public class Commands extends PlugInFrame implements ActionListener, ItemListene
 		
 	}
 
-	@Override
+	/*@Override
 	public StringSorter commandExecuting(StringSorter command) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }
