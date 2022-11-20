@@ -873,6 +873,7 @@ public class IJ {
 	}
 
 	public static final int CANCELED = Integer.MIN_VALUE;
+	private static final IJ GifWriter = null;
 
 	/** Allows the user to enter a number in a dialog box. Returns the	
 	    value IJ.CANCELED (-2,147,483,648) if the user cancels the dialog box. 
@@ -2101,7 +2102,7 @@ public class IJ {
 			return;
 		} else if (format.indexOf("gif")!=-1) {
 			path = updateExtension(path, ".gif");
-			GifWriter.save(imp, path);
+			IJ.save(imp, path);
 			return;
 		} else if (format.indexOf("text image")!=-1) {
 			path = updateExtension(path, ".txt");

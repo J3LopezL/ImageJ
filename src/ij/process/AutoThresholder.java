@@ -52,7 +52,7 @@ public class AutoThresholder {
 			case Intermodes: threshold = Intermodes(histogram); break;
 			case IsoData: threshold = IsoData(histogram); break;
 			case Li: threshold = Li(histogram); break;
-			case MaxEntropy: threshold = MaxEntropy(histogram); break;
+			case MaxEntropy: threshold = RenyiEntropy(histogram); break;
 			case Mean: threshold = Mean(histogram); break;
 			case MinError: threshold = MinErrorI(histogram); break;
 			case Minimum: threshold = Minimum(histogram); break;
@@ -62,6 +62,8 @@ public class AutoThresholder {
 			case RenyiEntropy: threshold = RenyiEntropy(histogram); break;
 			case Triangle: threshold = Triangle(histogram); break;
 			case Yen: threshold = Yen(histogram); break;
+		default:
+			break;
 		}
 		if (threshold==-1) threshold = 0;
 		return threshold;
@@ -301,7 +303,6 @@ public class AutoThresholder {
 		int[] data2 = new int[n];
 		int mode=0, maxCount=0;
 		for (int i=0; i<n; i++) {
-			int count = data[i];
 			data2[i] = data[i];
 			if (data2[i]>maxCount) {
 				maxCount = data2[i];
@@ -342,7 +343,6 @@ public class AutoThresholder {
 			return level;
 		}
 		int movingIndex = min;
-		int inc = Math.max(max/40, 1);
 		do {
 			sum1=sum2=sum3=sum4=0.0;
 			for (int i=min; i<=movingIndex; i++) {
@@ -685,7 +685,6 @@ public class AutoThresholder {
 		// See http://www.cs.tut.fi/~ant/histthresh/ for an excellent slide presentation
 		// and the original Matlab code.
 
-		int iter =0;
 		int threshold = -1;
 		double ptile= 0.5; // default fraction of foreground pixels
 		double [] avec = new double [256];
