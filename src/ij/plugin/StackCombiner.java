@@ -51,6 +51,10 @@ public class StackCombiner implements PlugIn {
 		imp3.show();
 	}
 	
+	private ImageStack combineHorizontally(ImageStack stack1, ImageStack stack2) {
+		return null;
+	}
+
 	public ImageStack combineVertically(ImageStack stack1, ImageStack stack2) {
 		int d1 = stack1.getSize();
 		int d2 = stack2.getSize();

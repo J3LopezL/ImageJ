@@ -1,3 +1,5 @@
+package ij;
+
 import ij.util.StringSorter;
 
 /** Plugins that implement this interface are notified when ImageJ
@@ -11,6 +13,6 @@ import ij.util.StringSorter;
 			and ImageJ will run the command, return a different command name
 			and ImageJ will run that command, or return null to not run a command.
 		*/
-		public StringSorter commandExecuting(StringSorter command);
+		public StringSorter commandExecuting(String command);
 
 	}
