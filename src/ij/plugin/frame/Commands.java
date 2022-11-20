@@ -189,10 +189,4 @@ public class Commands extends PlugInFrame implements ActionListener, ItemListene
 		Prefs.set(CMDS_KEY, cmds);
 	}
 
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

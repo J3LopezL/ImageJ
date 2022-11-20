@@ -81,11 +81,5 @@ public class PasteController extends PlugInFrame implements PlugIn, ItemListener
 		super.close();
 		instance = null;
 	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }

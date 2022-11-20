@@ -546,10 +546,4 @@ class PixelInspector extends PlugInFrame
 		}
 		return new String(buf);
 	}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

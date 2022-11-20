@@ -15,10 +15,6 @@ import java.util.ArrayList;
 */
 public class TextWindow extends Frame implements ActionListener, FocusListener, ItemListener {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public static final String LOC_KEY = "results.loc";
 	public static final String WIDTH_KEY = "results.width";
 	public static final String HEIGHT_KEY = "results.height";
@@ -71,7 +67,7 @@ public class TextWindow extends Frame implements ActionListener, FocusListener, 
 	* @param width	width of the window in pixels
 	* @param height	height of the window in pixels
 	*/
-	public TextWindow(String title, String headings, ArrayList<?> text, int width, int height) {
+	public TextWindow(String title, String headings, ArrayList text, int width, int height) {
 		super(title);
 		textPanel = new TextPanel(title);
 		textPanel.setColumnHeadings(headings);
@@ -80,7 +76,6 @@ public class TextWindow extends Frame implements ActionListener, FocusListener, 
 		create(title, textPanel, width, height);
 	}
 
-	@SuppressWarnings("deprecation")
 	private void create(String title, TextPanel textPanel, int width, int height) {
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
 		if (IJ.isLinux()) setBackground(ImageJ.backgroundColor);
@@ -132,7 +127,6 @@ public class TextWindow extends Frame implements ActionListener, FocusListener, 
 	* @param width	the width of the window in pixels
 	* @param height	the height of the window in pixels
 	*/
-	@SuppressWarnings("deprecation")
 	public TextWindow(String path, int width, int height) {
 		super("");
 		enableEvents(AWTEvent.WINDOW_EVENT_MASK);
@@ -250,6 +244,7 @@ public class TextWindow extends Frame implements ActionListener, FocusListener, 
 
 	/** Appends the text in the specified file to the end of this TextWindow. */
 	public void load(BufferedReader in) throws IOException {
+		int count=0;
 		while (true) {
 			String s=in.readLine();
 			if (s==null) break;
@@ -340,6 +335,7 @@ public class TextWindow extends Frame implements ActionListener, FocusListener, 
 	}
 	
 	void changeFontSize(boolean larger) {
+        int in = fontSize;
         if (larger) {
             fontSize++;
             if (fontSize==sizes.length)

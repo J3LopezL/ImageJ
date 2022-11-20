@@ -67,11 +67,6 @@ public class AutoThresholder {
 		return threshold;
 	}
 
-	private int MaxEntropy(int[] histogram) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public int getThreshold(String mString, int[] histogram) {
 		// throws an exception if unknown argument
 		int index = mString.indexOf(" ");

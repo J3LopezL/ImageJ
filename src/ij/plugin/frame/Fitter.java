@@ -325,10 +325,4 @@ public class Fitter extends PlugInFrame implements PlugIn, ItemListener, ActionL
     
 	public void lostOwnership (Clipboard clip, Transferable cont) {}
 
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

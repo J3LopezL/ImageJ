@@ -232,7 +232,7 @@ import java.security.MessageDigest;
 	}
 
 	static String[] splitLines(String str) {
-		Vector<String> v = new Vector<String>();
+		Vector v = new Vector();
 		try {
 			BufferedReader br  = new BufferedReader(new StringReader(str));
 			String line;

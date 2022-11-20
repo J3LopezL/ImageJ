@@ -5,12 +5,8 @@ import ij.*;
 import ij.plugin.*;
 
 /**  This is a closeable window that plugins can extend. */
-public abstract class PlugInFrame extends Frame implements PlugIn, WindowListener, FocusListener {
+public class PlugInFrame extends Frame implements PlugIn, WindowListener, FocusListener {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	String title;
 	
 	public PlugInFrame(String title) {

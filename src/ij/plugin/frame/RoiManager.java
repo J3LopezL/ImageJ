@@ -2884,7 +2884,7 @@ public class RoiManager extends PlugInFrame implements ActionListener, ItemListe
 	}
 
     public void windowActivated(WindowEvent e) {
-    	//super.windowActivated(e);
+    	super.windowActivated(e);
     	ImagePlus imp = WindowManager.getCurrentImage();
     	if (imp!=null) {
     		if (imageID!=0 && imp.getID()!=imageID) {

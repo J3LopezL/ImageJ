@@ -24,17 +24,13 @@ public class TextPanel extends Panel implements AdjustmentListener,
 	MouseListener, MouseMotionListener, KeyListener,  ClipboardOwner,
 	ActionListener, MouseWheelListener, Runnable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	static final int DOUBLE_CLICK_THRESHOLD = 650;
 	// height / width
 	int iGridWidth,iGridHeight;
 	int iX,iY;
 	// data
 	String[] sColHead;
-	Vector<char[]> vData;
+	Vector vData;
 	int[] iColWidth;
 	int iColCount,iRowCount;
 	int iRowHeight,iFirstRow;
@@ -139,7 +135,7 @@ public class TextPanel extends Panel implements AdjustmentListener,
         	iColCount = sColHead.length;
 		}
 		flush();
-		vData=new Vector<char[]>();
+		vData=new Vector();
 		if (!(iColWidth!=null && iColWidth.length==iColCount && sameLabels && iColCount!=1)) {
 			iColWidth=new int[iColCount];
 			columnsManuallyAdjusted = false;
@@ -214,7 +210,7 @@ public class TextPanel extends Panel implements AdjustmentListener,
 	}
 
 	/** Adds strings contained in an ArrayList to the end of this TextPanel. */
-	public void append(ArrayList<?> list) {
+	public void append(ArrayList list) {
 		if (list==null) return;
 		if (vData==null) setColumnHeadings("");
 		for (int i=0; i<list.size(); i++)
@@ -314,6 +310,7 @@ public class TextPanel extends Panel implements AdjustmentListener,
 				String owner = title.substring(20, title.length());
 				String[] titles = WindowManager.getImageTitles();
 				for (int i=0; i<titles.length; i++) {
+					String t = titles[i];
 					if (titles[i].equals(owner)) {
 						ImagePlus imp = WindowManager.getImage(owner);
 						WindowManager.setTempCurrentImage(imp);//?
@@ -434,7 +431,7 @@ public class TextPanel extends Panel implements AdjustmentListener,
 		if (e.getClickCount() == 2 && !e.isConsumed()) {
 			e.consume();
 			boolean doubleClickableTable = title!=null && (title.equals("Log")||title.startsWith("Overlay Elements"));
-			Hashtable<?, ?> commands = Menus.getCommands();
+			Hashtable commands = Menus.getCommands();
 			boolean tableActionCommand = commands!=null && commands.get("Table Action")!=null;
 			if (!tableActionCommand)
 				tableActionCommand = ij.plugin.MacroInstaller.isMacroCommand("Table Action");
@@ -919,6 +916,8 @@ public class TextPanel extends Panel implements AdjustmentListener,
 		if (rowIndex>=iRowCount) rowIndex=iRowCount-1;
 		sbVert.setValue(rowIndex);
 		iY=iRowHeight*sbVert.getValue();
+		int hstart = sbHoriz.getValue();
+		int hVisible = sbHoriz.getVisibleAmount()-1;
 		int col = 0;
 		if (column!=null && sColHead!=null && iColWidth!=null) {
 			for (int i=0; i<sColHead.length; i++) {

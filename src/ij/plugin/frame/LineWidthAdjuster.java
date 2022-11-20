@@ -159,7 +159,7 @@ public class LineWidthAdjuster extends PlugInFrame implements PlugIn,
 	}
 
     public void windowActivated(WindowEvent e) {
-    	//super.windowActivated(e);
+    	super.windowActivated(e);
     	checkbox.setState(isSplineFit());
 	}
 
