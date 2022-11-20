@@ -1,8 +1,6 @@
 package ij;
 
-import ij.util.StringSorter;
-
-/** Plugins that implement this interface are notified when ImageJ
+	/** Plugins that implement this interface are notified when ImageJ
 		is about to run a menu command. There is an example plugin at
 		http://imagej.nih.gov/ij/plugins/download/misc/Command_Listener.java
 	*/

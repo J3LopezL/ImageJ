@@ -1,10 +1,13 @@
 package ij.text;
 import ij.util.Java2;
 import java.awt.*;
-import java.awt.event.*;
 
 class TextCanvas extends Canvas {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	TextPanel tp;
 	Font fFont;
 	FontMetrics fMetrics;

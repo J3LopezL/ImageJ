@@ -127,6 +127,12 @@ public class MemoryMonitor extends PlugInFrame {
 			g.drawImage(image, 0, 0, null);
 		}
 		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	} 
 
 }

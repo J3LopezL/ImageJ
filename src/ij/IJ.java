@@ -2102,7 +2102,7 @@ public class IJ {
 			return;
 		} else if (format.indexOf("gif")!=-1) {
 			path = updateExtension(path, ".gif");
-			IJ.save(imp, path);
+			GifWriter.save(imp, path);
 			return;
 		} else if (format.indexOf("text image")!=-1) {
 			path = updateExtension(path, ".txt");

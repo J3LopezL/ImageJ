@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/media/Datos/MISO/Métricas/Semana 06/Entrega/ImageJ/.metadata/.plugins/org.eclipse.jdt.core
-1865797976.index
-1175494123.index

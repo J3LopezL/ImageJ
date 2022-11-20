@@ -2,6 +2,7 @@ package ij.plugin;
 import ij.*;
 import ij.process.*;
 import ij.gui.*;
+import java.awt.*;
 
 /** Implements the conversion commands in the Image/Type submenu. */
 public class Converter implements PlugIn {
@@ -38,6 +39,7 @@ public class Converter implements PlugIn {
 	argument corresponds to one of the labels in the Image/Type submenu
 	("8-bit", "16-bit", "32-bit", "8-bit Color", "RGB Color", "RGB Stack", "HSB Stack", "Lab Stack" or "HSB (32-bit)"). */
 	public void convert(String item) {
+		int type = imp.getType();
 		ImageStack stack = null;
 		if (imp.getStackSize()>1)
 			stack = imp.getStack();
@@ -78,7 +80,7 @@ public class Converter implements PlugIn {
 				else if (item.equals("RGB Stack"))
 					new StackConverter(imp).convertToRGBHyperstack();
 				else if (item.equals("HSB Stack"))
-					new StackConverter(imp).convertToHSB32Hyperstack();
+					new StackConverter(imp).convertToLabHyperstack();
 				else if (item.equals("HSB (32-bit)"))
 					new StackConverter(imp).convertToHSB32Hyperstack();
 				else if (item.equals("Lab Stack"))

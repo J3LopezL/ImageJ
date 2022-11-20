@@ -15,10 +15,6 @@ import ij.text.TextWindow;
 /** This class is an extended ImageWindow that displays histograms. */
 public class HistogramWindow extends ImageWindow implements Measurements, ActionListener, 
 	ClipboardOwner, ImageListener, RoiListener, Runnable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static final double SCALE = HistogramPlot.SCALE;
 	static final int HIST_WIDTH = HistogramPlot.HIST_WIDTH;
 	static final int HIST_HEIGHT = HistogramPlot.HIST_HEIGHT;
@@ -51,6 +47,7 @@ public class HistogramWindow extends ImageWindow implements Measurements, Action
 	private Thread bgThread;		// thread background drawing
 	private boolean doUpdate;	// tells background thread to update
 	private int rgbMode = -1;
+	private String blankLabel;
 	private boolean stackHistogram;
 	private Font font = new Font("SansSerif",Font.PLAIN,(int)(12*SCALE));
 	private boolean showBins;
@@ -188,6 +185,7 @@ public class HistogramWindow extends ImageWindow implements Measurements, Action
 		ip.setColor(Color.white);
 		ip.resetRoi();
 		ip.fill();
+		ImageProcessor srcIP = srcImp.getProcessor();
 		drawHistogram(srcImp, ip, fixedRange, stats.histMin, stats.histMax);
 		imp.updateAndDraw();
 	}
@@ -254,6 +252,7 @@ public class HistogramWindow extends ImageWindow implements Measurements, Action
 	void drawHistogram(ImagePlus imp, ImageProcessor ip, boolean fixedRange, double xMin, double xMax) {
 		int x, y;
 		long maxCount2 = 0;
+		int mode2 = 0;
 		long saveModalCount;		    	
 		ip.setColor(Color.black);
 		ip.setLineWidth(1);
@@ -263,6 +262,7 @@ public class HistogramWindow extends ImageWindow implements Measurements, Action
 		for (int i = 0; i<histogram.length; i++) {
  			if ((histogram[i] > maxCount2) && (i != stats.mode)) {
 				maxCount2 = histogram[i];
+				mode2 = i;
   			}
   		}
 		newMaxCount = histogram[stats.mode];

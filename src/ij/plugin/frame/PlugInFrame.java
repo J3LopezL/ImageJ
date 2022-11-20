@@ -5,7 +5,7 @@ import ij.*;
 import ij.plugin.*;
 
 /**  This is a closeable window that plugins can extend. */
-public class PlugInFrame extends Frame implements PlugIn, WindowListener, FocusListener {
+public abstract class PlugInFrame extends Frame implements PlugIn, WindowListener, FocusListener {
 
 	/**
 	 * 
@@ -56,10 +56,4 @@ public class PlugInFrame extends Frame implements PlugIn, WindowListener, FocusL
     public void windowDeiconified(WindowEvent e) {}
     public void windowDeactivated(WindowEvent e) {}
 	public void focusLost(FocusEvent e) {}
-
-	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

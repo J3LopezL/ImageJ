@@ -68,7 +68,7 @@ public class StackCombiner implements PlugIn {
 		int h3 = h1 + h2;
 		ImageStack stack3 = new ImageStack(w3, h3, stack1.getColorModel());
 		ImageProcessor ip = stack1.getProcessor(1);
-		ImageProcessor ip3;
+		ImageProcessor ip1, ip2, ip3;
  		Color background = Toolbar.getBackgroundColor();
  		for (int i=1; i<=d3; i++) {
  			IJ.showProgress((double)i/d3);
@@ -110,6 +110,7 @@ public class StackCombiner implements PlugIn {
 		gd.showDialog();
 		if (gd.wasCanceled())
 			return false;
+		int[] index = new int[3];
 		int index1 = gd.getNextChoiceIndex();
 		int index2 = gd.getNextChoiceIndex();
 		imp1 = WindowManager.getImage(wList[index1]);

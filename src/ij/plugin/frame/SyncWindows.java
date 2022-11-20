@@ -1059,6 +1059,12 @@ public class SyncWindows extends PlugInFrame implements
 		return command;
 	}
 
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }	// SyncWindows_
 
 /** The Listener interface for receiving DisplayChange events.
