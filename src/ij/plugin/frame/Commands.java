@@ -1,6 +1,8 @@
 package ij.plugin.frame;
 import ij.*;
 import ij.gui.*;
+import ij.util.StringSorter;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -188,5 +190,17 @@ public class Commands extends PlugInFrame implements ActionListener, ItemListene
 		//IJ.log("close: "+cmds); IJ.wait(5000);
 		Prefs.set(CMDS_KEY, cmds);
 	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*@Override
+	public StringSorter commandExecuting(StringSorter command) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 
 }

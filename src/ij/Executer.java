@@ -1,4 +1,5 @@
 package ij;
+import ij.util.StringSorter;
 import ij.util.Tools;
 import ij.text.TextWindow;
 import ij.plugin.MacroInstaller;
